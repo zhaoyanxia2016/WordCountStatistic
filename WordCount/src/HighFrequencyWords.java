@@ -74,5 +74,62 @@ public class HighFrequencyWords  extends JFrame
                }
             }
         });
-    
+    inputButton.addActionListener(new ActionListener()
+		{
+            public void actionPerformed(ActionEvent event)
+            {
+               if (event.getSource()==inputButton)
+               {
+            	   long start = System.currentTimeMillis();
+            	   String n=number2.getText();
+            	   int wordNum=Integer.parseInt(n);
+            	   String print = "";
+            	   if (!n.isEmpty())
+            	   {		 
+            		   String str = "above, over,in,of,at,on,behind,during,from,into, onto,inside,outside,to,without,"
+            		   		+ "throughout,out,she,he,its,we,them,your,i,you,my,myeself,a,an,the";
+           		       String s[] = str.split(",");  
+           		        
+           		       ArrayList<Map.Entry<String, Integer>> list = new ArrayList<Map.Entry<String, Integer>>(maps.entrySet());
+           	           //按词频排序
+           		       Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() 
+           		       {
+           	                public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2)
+           	                {
+           	                    return o2.getValue() - o1.getValue(); 
+           	                }
+           	           });
+           		       int j=0;
+           		       int i=0;
+                       while (j<wordNum)
+                       {
+                			boolean flag = true ;
+                			String tmpString = list.get(i).getKey();
+                			for (String string : s) 
+                			{	
+                				if(tmpString.equals(string))
+                				{
+                					    flag = false;
+                				 } 
+                			}	
+                		
+                			if(flag)
+                			{    
+                			     print += list.get(i).getKey()+ ": " +list.get(i).getValue()+"    ";
+                			     j++;
+                			     
+                			 }
+                			i++;
+                   		}
+                       JOptionPane.showConfirmDialog(null,print+"\n"+"所用时间："+(System.currentTimeMillis() - start)+"ms","结果",JOptionPane.DEFAULT_OPTION);
+            	   }
+    			}
+    			else
+    			{
+    				   	JOptionPane.showConfirmDialog(null, "请输入要查询的信息！","提示",JOptionPane.DEFAULT_OPTION);					
+    			} 
+            	    
+            }
+        });
+    }
 }
