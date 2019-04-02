@@ -11,7 +11,7 @@ import java.util.Map.Entry;
 
 import javax.swing.JOptionPane;
 /**
- * @author Lin Zhou,YanXiao Zhao
+ * @author Lin Zhou,YanXia Zhao
  * @data 2019.3.31
  */
 /**按字典顺序输出到文件*/
