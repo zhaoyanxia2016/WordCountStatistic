@@ -74,44 +74,5 @@ public class HighFrequencyWords  extends JFrame
                }
             }
         });
-    inputButton.addActionListener(new ActionListener()
-	{
-        public void actionPerformed(ActionEvent event)
-        {
-           if (event.getSource()==inputButton)
-           {
-        	   long start = System.currentTimeMillis();
-        	   String word=word2.getText();
-        	   if (!word.isEmpty())
-        	   {		  
-        			Map<String,Integer> map = new TreeMap<String, Integer>();  
-					String[] input= word.split(" ");
-				    int i;
-				    String print = "";
-				    for (i=0; i<input.length; i++) 
-				    {
-				       	for (Entry<String, Integer> entry : maps.entrySet()) 
-				       	{ 
-				       		if (input[i].equals(entry.getKey()))
-				        	{
-				        		map.put(entry.getKey(), entry.getValue());
-				        		print += entry.getKey() + ":" + entry.getValue()+"    "; 
-				        		break;
-				        	}
-				         } 
-				     }
-				    long time=System.currentTimeMillis() - start;
-				   	JOptionPane.showConfirmDialog(null,print+"\n"+"所用时间："+(System.currentTimeMillis() - start)+"ms","结果",JOptionPane.DEFAULT_OPTION);
-				   	WordCountHistogram histogram=new WordCountHistogram(map,input.length);
-				   	histogram.setVisible(true);
-				}
-				else
-				{
-				   	JOptionPane.showConfirmDialog(null, "请输入要查询的信息！","提示",JOptionPane.DEFAULT_OPTION);					
-				} 
-        	   
-           }
-        }
-     });    
-	}
+    
 }
