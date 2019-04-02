@@ -108,7 +108,9 @@ public class WordCountStatistics extends JFrame
 				     }
 				    long time=System.currentTimeMillis() - start;
 				   	JOptionPane.showConfirmDialog(null,print+"\n"+"所用时间："+(System.currentTimeMillis() - start)+"ms","结果",JOptionPane.DEFAULT_OPTION);
-            				}
+            				 WordCountHistogram histogram=new WordCountHistogram(map,input.length);
+				   	histogram.setVisible(true);
+					}
 				else
 				{
 				   	JOptionPane.showConfirmDialog(null, "请输入要查询的信息！","提示",JOptionPane.DEFAULT_OPTION);					
