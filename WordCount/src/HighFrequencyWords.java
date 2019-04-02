@@ -18,7 +18,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 /**
- * @author Lin Zhou,YanXiao Zhao
+ * @author Lin Zhou,YanXia Zhao
  * @data 2019.3.31
  */
 public class HighFrequencyWords  extends JFrame 
